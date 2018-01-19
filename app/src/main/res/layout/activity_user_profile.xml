@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.kar.githubsearch.ui.user_profile.UserProfileActivity"
+    android:background="@color/colorPrimary">
+
+
+    <ImageView
+        android:id="@+id/iv_user"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="72dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@color/cardview_dark_background" />
+
+    <TextView
+        android:id="@+id/tv_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:textColor="@color/userProfileText"
+        android:textSize="28sp"
+        android:text="{User Name}"
+        app:layout_constraintEnd_toEndOf="@+id/iv_user"
+        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintStart_toStartOf="@+id/iv_user"
+        app:layout_constraintTop_toBottomOf="@+id/iv_user" />
+
+    <TextView
+        android:id="@+id/tv_user_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textSize="16sp"
+        android:textColor="@color/userProfileText"
+        android:text="{User ID}"
+        app:layout_constraintEnd_toEndOf="@+id/tv_user_name"
+        app:layout_constraintStart_toStartOf="@+id/tv_user_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_user_name" />
+
+    <View
+        android:id="@+id/view_border_1"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginBottom="72dp"
+        android:background="@color/userProfileText"
+        app:layout_constraintBottom_toTopOf="@+id/view_border_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/view_border_2"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginBottom="56dp"
+        android:background="@color/userProfileText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_followers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/userProfileText"
+        android:textSize="24sp"
+        android:text="{1000}"
+        app:layout_constraintEnd_toEndOf="@+id/view_border_1"
+        app:layout_constraintStart_toStartOf="@+id/view_border_1"
+        app:layout_constraintTop_toTopOf="@+id/view_border_1" />
+
+    <TextView
+        android:id="@+id/tv_followers_place"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:textSize="14sp"
+        android:textColor="@color/userProfileTextPlace"
+        android:text="@string/followers_place"
+        app:layout_constraintEnd_toEndOf="@+id/tv_followers"
+        app:layout_constraintStart_toStartOf="@+id/tv_followers"
+        app:layout_constraintTop_toBottomOf="@+id/tv_followers" />
+
+    <TextView
+        android:id="@+id/tv_repos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="32dp"
+        android:textColor="@color/userProfileText"
+        android:textSize="24sp"
+        android:text="{500}"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_followers"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_followers"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tv_repos_place"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:textSize="14sp"
+        android:textColor="@color/userProfileTextPlace"
+        android:text="@string/repos_place"
+        app:layout_constraintEnd_toEndOf="@+id/tv_repos"
+        app:layout_constraintStart_toStartOf="@+id/tv_repos"
+        app:layout_constraintTop_toBottomOf="@+id/tv_repos" />
+
+    <TextView
+        android:id="@+id/tv_following"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="56dp"
+        android:layout_marginRight="56dp"
+        android:textColor="@color/userProfileText"
+        android:textSize="24sp"
+        android:text="{200}"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_followers"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_followers" />
+
+    <TextView
+        android:id="@+id/tv_following_place"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:textSize="14sp"
+        android:textColor="@color/userProfileTextPlace"
+        android:text="@string/following_place"
+        app:layout_constraintEnd_toEndOf="@+id/tv_following"
+        app:layout_constraintStart_toStartOf="@+id/tv_following"
+        app:layout_constraintTop_toBottomOf="@+id/tv_following" />
+</android.support.constraint.ConstraintLayout>

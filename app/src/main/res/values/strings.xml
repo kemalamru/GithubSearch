@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Github Search</string>
+
+    <string name="search_bar_placeholder">Search Github User</string>
+
+    <string name="error_user_not_found">User not found</string>
+    <string name="error_search_limit">Please wait for 1 minute before make another search</string>
+    <string name="error_no_connection">Please check your connection</string>
+
+    <string name="followers_place">FOLLOWERS</string>
+    <string name="repos_place">REPOS</string>
+    <string name="following_place">FOLLOWING</string>
+</resources>
