@@ -2,11 +2,13 @@ package com.kar.githubsearch.ui.user_profile;
 
 import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,12 +34,14 @@ public class UserProfileActivity extends AppCompatActivity {
     private final String TAG = UserProfileActivity.class.getSimpleName();
     public static final String KEY_USER_LOGIN = "key_user_login";
 
+    private ConstraintLayout mLayout;
     private ImageView mIvUser;
     private TextView mTvUserName;
     private TextView mTvUserId;
     private TextView mTvRepos;
     private TextView mTvFollowers;
     private TextView mTvFollowing;
+    private ProgressBar mProgressBar;
 
     @Inject
     ViewModelProvider.Factory mViewModelFactory;
@@ -61,12 +65,14 @@ public class UserProfileActivity extends AppCompatActivity {
     }
 
     private void layoutSetup() {
+        mLayout = findViewById(R.id.constraint_layout);
         mIvUser = findViewById(R.id.iv_user);
         mTvUserName = findViewById(R.id.tv_user_name);
         mTvUserId = findViewById(R.id.tv_user_id);
         mTvRepos = findViewById(R.id.tv_repos);
         mTvFollowers = findViewById(R.id.tv_followers);
         mTvFollowing = findViewById(R.id.tv_following);
+        mProgressBar = findViewById(R.id.progress_bar);
     }
 
     private void getUserProfile(String userLogin) {
@@ -90,7 +96,8 @@ public class UserProfileActivity extends AppCompatActivity {
     }
 
     private void renderLoadingState() {
-        Log.d(TAG, "Entering Loading State");
+        mLayout.setVisibility(View.GONE);
+        mProgressBar.setVisibility(View.VISIBLE);
     }
 
     private void renderDataState(UserProfile userProfile) {
@@ -102,15 +109,19 @@ public class UserProfileActivity extends AppCompatActivity {
         mTvRepos.setText(String.valueOf(userProfile.getPublicRepos()));
         mTvFollowers.setText(String.valueOf(userProfile.getFollowers()));
         mTvFollowing.setText(String.valueOf(userProfile.getFollowing()));
+
+        mProgressBar.setVisibility(View.GONE);
+        mLayout.setVisibility(View.VISIBLE);
     }
 
     private void renderErrorState(Throwable error) {
         Log.d(TAG, "Entering Error State");
 
+        mProgressBar.setVisibility(View.GONE);
         if (error instanceof HttpException) {
             Toast.makeText(
                     this,
-                    getResources().getString(R.string.error_search_limit),
+                    getResources().getString(R.string.error_connection_limit),
                     Toast.LENGTH_SHORT).show();
 
         } else {

@@ -102,10 +102,6 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, UserProfileActivity.class);
             intent.putExtra(UserProfileActivity.KEY_USER_LOGIN, mAdapter.getData(position).getLogin());
             startActivity(intent);
-//            Toast.makeText(
-//                    this,
-//                    "Clicked On Position = " + position,
-//                    Toast.LENGTH_SHORT).show();
         });
     }
 
@@ -178,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
         if (error instanceof HttpException) {
             Toast.makeText(
                     this,
-                    getResources().getString(R.string.error_search_limit),
+                    getResources().getString(R.string.error_connection_limit),
                     Toast.LENGTH_SHORT).show();
 
         } else {
